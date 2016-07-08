@@ -20,16 +20,16 @@ export default Ember.Component.extend({
   }),
 
   setup: on('didInsertElement', function () {
+    var range = this.$().find('.range-original')
     var that = this;
-    this.$().find('.range-original').val(function() {
+    range.val(function() {
       that.get('value')
-    })
-    this.$().find('.range-original').rangeinput({
-      value: this.get('value'),
-      min: this.get('min'),
-      max: this.get('max'),
-      step: this.get('step')
     });
+    range.prop('value', this.get('value'));
+    range.prop('min', this.get('min'));
+    range.prop('max', this.get('max'));
+    range.prop('step', this.get('step'));
+    range.rangeinput({});
     this.set('$range', this.$().find(':range').data('rangeinput'));
   }),
 
