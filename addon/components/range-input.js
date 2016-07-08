@@ -20,17 +20,22 @@ export default Ember.Component.extend({
   }),
 
   setup: on('didInsertElement', function () {
-    var range = this.$().find('.range-original')
     var that = this;
-    range.val(function() {
-      that.get('value')
+    Ember.run.next(function(){
+      if(that.get('isDestroyed')) {
+        return;
+      }
+      var range = that.$().find('.range-original')
+      range.val(function() {
+        that.get('value')
+      });
+      range.attr('value', that.get('value'));
+      range.attr('min', that.get('min'));
+      range.attr('max', that.get('max'));
+      range.attr('step', that.get('step'));
+      range.rangeinput({});
+      that.set('$range', that.$().find(':range').data('rangeinput'));
     });
-    range.attr('value', this.get('value'));
-    range.attr('min', this.get('min'));
-    range.attr('max', this.get('max'));
-    range.attr('step', this.get('step'));
-    range.rangeinput({});
-    this.set('$range', this.$().find(':range').data('rangeinput'));
   }),
 
   change: function () {
