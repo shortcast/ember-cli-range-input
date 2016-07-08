@@ -20,7 +20,7 @@ export default Ember.Component.extend({
   }),
 
   setup: on('didInsertElement', function () {
-    $('.range-original').val(=>
+    this.$().find('.range-original').val(=>
       this.get('value')
     )
     this.$().find('.range-original').rangeinput({
