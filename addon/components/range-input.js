@@ -11,6 +11,7 @@ export default Ember.Component.extend({
   step: 1,
 
   value: computed(function (key, value) {
+    debugger
     return !value && value != 0 ? this.get('min') : value;
   }),
 
