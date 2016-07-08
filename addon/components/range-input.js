@@ -9,12 +9,8 @@ export default Ember.Component.extend({
   min: 0,
   max: 10,
   step: 1,
-
-  value: computed(function (key, value) {
-    debugger
-    return !value && value != 0 ? this.get('min') : value;
-  }),
-
+  value: 0,
+  
   onValueChange: observer('value', function () {
     var value = this.get('value');
     var lastValue = this.get('lastValue');
