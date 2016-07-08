@@ -25,10 +25,10 @@ export default Ember.Component.extend({
     range.val(function() {
       that.get('value')
     });
-    range.prop('value', this.get('value'));
-    range.prop('min', this.get('min'));
-    range.prop('max', this.get('max'));
-    range.prop('step', this.get('step'));
+    range.attr('value', this.get('value'));
+    range.attr('min', this.get('min'));
+    range.attr('max', this.get('max'));
+    range.attr('step', this.get('step'));
     range.rangeinput({});
     this.set('$range', this.$().find(':range').data('rangeinput'));
   }),
