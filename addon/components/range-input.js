@@ -10,7 +10,6 @@ export default Ember.Component.extend({
   max: 10,
   step: 1,
   value: 0,
-  disabled: true,
 
   onValueChange: observer('value', function () {
     var value = this.get('value');
@@ -30,7 +29,6 @@ export default Ember.Component.extend({
     range.attr('min', this.get('min'));
     range.attr('max', this.get('max'));
     range.attr('step', this.get('step'));
-    range.attr('disabled', this.get('disabled'));
     range.rangeinput({});
     this.set('$range', this.$().find(':range').data('rangeinput'));
   }),
