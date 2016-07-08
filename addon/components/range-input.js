@@ -10,7 +10,7 @@ export default Ember.Component.extend({
   max: 10,
   step: 1,
   value: 0,
-  
+
   onValueChange: observer('value', function () {
     var value = this.get('value');
     var lastValue = this.get('lastValue');
@@ -21,7 +21,10 @@ export default Ember.Component.extend({
 
   setup: on('didInsertElement', function () {
     this.$().find('.range-original').rangeinput({
-      value: this.get('value')
+      value: this.get('value'),
+      min: this.get('min'),
+      max: this.get('max'),
+      step: this.get('step')
     });
     this.set('$range', this.$().find(':range').data('rangeinput'));
   }),
