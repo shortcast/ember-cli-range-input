@@ -11,7 +11,7 @@ export default Ember.Component.extend({
   step: 1,
 
   value: computed(function (key, value) {
-    return !value && value !== 0 ? this.get('min') : value;
+    return !value && value != 0 ? this.get('min') : value;
   }),
 
   onValueChange: observer('value', function () {
